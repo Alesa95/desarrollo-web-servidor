@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ejercicio4_respuesta.php" method="get">
-        <label>Frase</label><br>
-        <input type="text" name="frase"><br><br>
-        <label>Encabezado</label><br>
-        <input type="text" name="encabezado"><br><br>
+    <form action="ejercicio5_respuesta.php" method="get">
+        <label>Base</label><br>
+        <input type="text" name="base"><br><br>
+        <label>Exponente</label><br>
+        <input type="text" name="exponente"><br><br>
         <input type="submit" value="Enviar">
     </form>
 
