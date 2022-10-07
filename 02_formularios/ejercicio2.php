@@ -14,11 +14,14 @@
     Generar una lista dinámicamente con tantos elementos
     como se haya indicado</p>
 
-    <form action="ejercicio2_respuesta.php" method="get">
-        <label>Número</label><br>
-        <input type="text" name="numero"><br><br>
-        <input type="submit" value="Enviar">
-    </form>
+    <div>
+        <form action="ejercicio2_respuesta.php" method="get">
+            <label>Número</label><br>
+            <input type="text" name="numero"><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    
 </body>
 </html>
 
