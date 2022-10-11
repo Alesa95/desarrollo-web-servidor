@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +43,13 @@
             <a href="ejercicio5.php">Ejercicio 5</a>
         </h2>
         <p>Formulario que reciba dos números. Devolver el resultado de elevar el primero al segundo. Asegurarse de que funciona con cualquier valor válido. No se admiten exponentes negativos.</p>
+    </div>
+
+    <div>
+        <h2>
+            <a href="ejercicio6.php">Ejercicio 6</a>
+        </h2>
+        <p>Formulario que reciba un número. Devolver el factorial de dicho número.</p>
     </div>
 </body>
 </html>
