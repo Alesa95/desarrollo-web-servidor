@@ -124,10 +124,50 @@
     </div>
 
     <div>
-        <h2>
-            <a href="ejercicio6.php">Ejercicio 6</a>
-        </h2>
+        <h2 id="ej6">Ejercicio 6</h2>
         <p>Formulario que reciba un número. Devolver el factorial de dicho número.</p>
+        <form action="#ej6" method="post">
+            <label>Número</label><br>
+            <input type="text" name="numero"><br><br>
+            <input type="hidden" name="f" value="ej6">
+            <input type="submit" value="Enviar">
+        </form>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if ($_POST["f"] == "ej6") {
+                    require 'funciones/factorial.php';
+                    $numero = $_POST["numero"];
+                    $resultado = factorial($numero);
+                    echo "<p>El resultado es $resultado</p>";
+                }
+            }
+        ?>
+    </div>
+    <div>
+        <h2 id="ej8">Ejercicio 8</h2>
+        <p>Crea un formulario que reciba un número y muestre la tabla de multiplicar de dicho número</p>
+        <form action="#ej8" method="post">
+            <label>Número</label><br>
+            <input type="text" name="numero"><br><br>
+            <input type="hidden" name="f" value="ej8">
+            <input type="submit" value="Enviar">
+        </form>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if ($_POST["f"] == "ej8") {
+                    $numero = $_POST["numero"];
+                    echo "<table>";
+                    echo "<tr><th>Tabla del $numero</th></tr>";
+                    for ($i = 1; $i <= 10; $i++) {
+                        echo "<tr>";
+                        echo "<td>$numero x $i</td>";
+                        echo "<td>" . $numero * $i . "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }
+            }
+        ?>
     </div>
 </body>
 </html>
