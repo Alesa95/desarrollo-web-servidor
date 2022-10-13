@@ -96,10 +96,31 @@
     </div>
 
     <div>
-        <h2>
-            <a href="ejercicio5.php">Ejercicio 5</a>
-        </h2>
+        <h2 id="ej5">Ejercicio 5</h2>
         <p>Formulario que reciba dos números. Devolver el resultado de elevar el primero al segundo. Asegurarse de que funciona con cualquier valor válido. No se admiten exponentes negativos.</p>
+        <form action="#ej5" method="post">
+            <label>Base</label><br>
+            <input type="text" name="base"><br><br>
+            <label>Exponente</label><br>
+            <input type="text" name="exponente"><br><br>
+            <input type="hidden" name="f" value="ej5">
+            <input type="submit" value="Enviar">
+        </form>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if ($_POST["f"] == "ej5") {
+                    require 'funciones/potencia.php';
+                    $base = $_POST["base"];
+                    $exponente = $_POST["exponente"];
+                    $resultado = potencia($base, $exponente);
+                    if ($resultado == -1) {
+                        echo "<p>El número no puede ser negativo</p>";
+                    } else {
+                        echo "<p>El resultado es $resultado</p>";
+                    }
+                }
+            }
+        ?>
     </div>
 
     <div>
