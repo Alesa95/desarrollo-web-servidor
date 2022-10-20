@@ -13,6 +13,29 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $temp_titulo = depurar($_POST["titulo"]);
             $temp_precio = depurar($_POST["precio"]);
+            if (isset($_POST["consola"])) {
+                $temp_consola = depurar($_POST["consola"]);
+            } else {
+                $temp_consola = "";
+            }
+            $temp_descripcion = $_POST["descripcion"];
+
+            //  Validación de la descripción
+            if (empty($temp_descripcion)) {
+                $err_descripcion = "La descripción es obligatoria";
+            } else {
+                if (strlen($temp_descripcion) > 255) {
+                    $err_descripcion = "La descripción no puede tener más de 255 caracteres";
+                } else {
+                    $descripcion = $temp_descripcion;
+                }
+            }
+
+            if (empty($temp_consola)) {
+                $err_consola = "La consola es obligatoria";
+            } else {
+                $consola = $temp_consola;
+            }
 
             if (empty($temp_titulo)) {
                 $err_titulo = "El título es obligatorio";
@@ -45,12 +68,14 @@
                 }
             }
 
-            if (isset($titulo) && isset($precio)) {
+            if (isset($titulo) && isset($precio) && isset($consola) && isset($descripcion)) {
                 echo "<p>$titulo</p>";
                 echo "<p>$precio</p>";
+                echo "<p>$consola</p>";
+                echo "<p>$descripcion</p>";
             }
         }
-
+        
         function depurar($dato) {
             $dato = trim($dato);
             $dato = stripslashes($dato);
@@ -67,6 +92,22 @@
         <p>Precio: <input type="text" name="precio">
             <span class="error">
                 * <?php if(isset($err_precio)) echo $err_precio ?>
+            </span>
+        </p>
+        <p>Consola: 
+            <select name="consola">
+                <option value="" selected disabled hidden>Elige una consola</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="ps5">Playstation 5</option>
+                <option value="switch">Nintendo Switch</option>
+            </select>
+            <span class="error">
+                * <?php if(isset($err_consola)) echo $err_consola ?>
+            </span>
+        </p>
+        <p>Descripción: <textarea name="descripcion"></textarea>
+            <span class="error">
+                * <?php if(isset($err_descripcion)) echo $err_descripcion ?>
             </span>
         </p>
         <p><input type="submit" value="Crear"></p>
