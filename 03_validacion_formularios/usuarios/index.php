@@ -11,7 +11,9 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $temp_nombre = depurar($_POST["nombre"]);
             $temp_apellidos = depurar($_POST["apellidos"]);
+            $temp_dni = depurar($_POST["dni"]);
 
+            //  Validación del nombre
             if (empty($temp_nombre)) {
                 $err_nombre = "El nombre es obligatorio";
             } else {
@@ -20,8 +22,43 @@
                 if (!preg_match($pattern, $temp_nombre)) {
                     $err_nombre = "El nombre solo puede contener letras";
                 } else {
-                    $nombre = $temp_nombre;
-                    echo "<p>$nombre</p>";
+                    if (strlen($temp_nombre) > 30) {
+                        $err_nombre = "El nombre no puede tener más de 30 caracteres";
+                    } else {
+                        //  ÉXITO
+                        $nombre = $temp_nombre;
+                    }
+                }
+            }
+
+            //  Validación de los apellidos
+            if (empty($temp_apellidos)) {
+                $err_apellidos = "El nombre es obligatorio";
+            } else {
+                $pattern = "/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]+$/";
+
+                if (!preg_match($pattern, $temp_apellidos)) {
+                    $err_apellidos = "El nombre solo puede contener letras";
+                } else {
+                    if (strlen($temp_apellidos) > 30) {
+                        $err_apellidos = "El nombre no puede tener más de 30 caracteres";
+                    } else {
+                        //  ÉXITO
+                        $apellidos = $temp_apellidos;
+                    }
+                }
+            }
+
+            //  Validación del DNI
+            if (empty($temp_dni)) {
+                $err_dni = "El DNI es obligatorio";
+            } else {
+                $pattern = "/^[0-9]{8}[a-zA-Z]$/";
+
+                if (!preg_match($pattern, $temp_dni)) {
+                    $err_dni = "El DNI tiene 8 dígitos y un carácter";
+                } else {
+                    $dni = $temp_dni;
                 }
             }
         }
