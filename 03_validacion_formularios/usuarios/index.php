@@ -9,22 +9,37 @@
 <body>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nombre = $_POST["nombre"];
-            $apellidos = $_POST["apellidos"];
+            $temp_nombre = depurar($_POST["nombre"]);
+            $temp_apellidos = depurar($_POST["apellidos"]);
 
-            $pattern = "/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]+$/";
-
-            if (preg_match($pattern, $nombre)) {
-                echo "<p>$nombre sigue el patrón</p>";
+            if (empty($temp_nombre)) {
+                $err_nombre = "El nombre es obligatorio";
             } else {
-                echo "<p>$nombre no sigue el patrón</p>";
+                $pattern = "/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]+$/";
+
+                if (!preg_match($pattern, $temp_nombre)) {
+                    $err_nombre = "El nombre solo puede contener letras";
+                } else {
+                    $nombre = $temp_nombre;
+                    echo "<p>$nombre</p>";
+                }
             }
+        }
+
+        function depurar($dato) {
+            $dato = trim($dato);
+            $dato = stripslashes($dato);
+            $dato = htmlspecialchars($dato);
+            return $dato;
         }
     ?>
 
     <form action="" method="post">
         <p>Nombre: 
             <input type="text" name="nombre">
+            <span class="error">
+                * <?php if(isset($err_nombre)) echo $err_nombre ?>
+            </span>
         </p>
         <p>Apellidos: 
             <input type="text" name="apellidos">
