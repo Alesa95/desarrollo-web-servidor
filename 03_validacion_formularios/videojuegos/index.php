@@ -20,6 +20,16 @@
             }
             $temp_descripcion = $_POST["descripcion"];
 
+            $file_name = $_FILES["imagen"]["name"];
+            $file_temp_name = $_FILES["imagen"]["tmp_name"];
+            $file_size = $_FILES["imagen"]["size"];
+            $file_type = $_FILES["imagen"]["type"];
+
+            echo "<p>$file_name</p>";
+            echo "<p>$file_temp_name</p>";
+            echo "<p>$file_size</p>";
+            echo "<p>$file_type</p>";
+
             //  Validación de la descripción
             if (empty($temp_descripcion)) {
                 $err_descripcion = "La descripción es obligatoria";
@@ -69,10 +79,10 @@
             }
 
             if (isset($titulo) && isset($precio) && isset($consola) && isset($descripcion)) {
-                echo "<p>$titulo</p>";
+                /*echo "<p>$titulo</p>";
                 echo "<p>$precio</p>";
                 echo "<p>$consola</p>";
-                echo "<p>$descripcion</p>";
+                echo "<p>$descripcion</p>";*/
             }
         }
         
@@ -83,7 +93,7 @@
             return $dato;
         }
     ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <p>Título: <input type="text" name="titulo">
             <span class="error">
                 * <?php if(isset($err_titulo)) echo $err_titulo ?>
@@ -110,6 +120,7 @@
                 * <?php if(isset($err_descripcion)) echo $err_descripcion ?>
             </span>
         </p>
+        <p>Imagen: <input type="file" name="imagen"></p>
         <p><input type="submit" value="Crear"></p>
     </form>
 </body>
