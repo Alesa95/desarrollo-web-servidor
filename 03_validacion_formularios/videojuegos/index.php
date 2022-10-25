@@ -21,14 +21,9 @@
             $temp_descripcion = $_POST["descripcion"];
 
             $file_name = $_FILES["imagen"]["name"];
-            $file_temp_name = $_FILES["imagen"]["tmp_name"];
-            $file_size = $_FILES["imagen"]["size"];
+            
+            
             $file_type = $_FILES["imagen"]["type"];
-
-            /*echo "<p>$file_name</p>";
-            echo "<p>$file_temp_name</p>";
-            echo "<p>$file_size</p>";
-            echo "<p>$file_type</p>";*/
 
             /*
                 VALIDAR EL FICHERO INTRODUCIDO
@@ -38,8 +33,8 @@
                 - LA IMAGEN NO PUEDE TENER MÁS DE 1 MG
              */
 
-            $extension = pathinfo($file_name, PATHINFO_EXTENSION);
-
+            
+            /*
             $new_file_name = "videojuego_" . 
                                 $temp_titulo . "." . $extension;
 
@@ -49,6 +44,43 @@
                 echo "<p>Fichero movido con éxito</p>";
             } else {
                 echo "<p>No se ha podido mover el fichero</p>";
+            }*/
+
+            //  Validación del fichero
+            if (empty($file_name)) {
+                $err_imagen = "La imagen es obligatoria";
+            } else {
+                $file_size = $_FILES["imagen"]["size"];
+
+                if ($file_size > 1000000) {
+                    $err_imagen = "La imagen no puede pesar más de 1 MB";
+                } else {
+                    $extension = pathinfo($file_name, PATHINFO_EXTENSION);
+
+                    $extension_valida = match($extension) {
+                        "jpg" => true,
+                        "jpeg" => true,
+                        "png" => true,
+                        default => false
+                    };
+
+                    if (!$extension_valida) {
+                        $err_imagen = "La imagen tiene que ser .png, .jpg o .jpeg";
+                    } else {
+                        $new_file_name = "videojuego_" . $temp_titulo 
+                            . "." . $extension;
+
+                        $path = "./images/" . $new_file_name;
+
+                        $file_temp_name = $_FILES["imagen"]["tmp_name"];
+
+                        if (move_uploaded_file($file_temp_name, $path)) {
+                            echo "<p>Fichero movido con éxito</p>";
+                        } else {
+                            echo "<p>Fracaso</p>";
+                        }
+                    }
+                }
             }
 
             //  Validación de la descripción
@@ -141,8 +173,13 @@
                 * <?php if(isset($err_descripcion)) echo $err_descripcion ?>
             </span>
         </p>
-        <p>Imagen: <input type="file" name="imagen"></p>
-        <p><input type="submit" value="Crear"></p>
+        <p>Imagen: <input type="file" name="imagen">
+            <span class="error">
+                * <?php if(isset($err_imagen)) echo $err_imagen ?>
+            </span>
+        </p>
+        <p><input type="submit" value="Crear">
+        </p>
     </form>
 </body>
 </html>
