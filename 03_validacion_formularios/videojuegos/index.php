@@ -25,10 +25,31 @@
             $file_size = $_FILES["imagen"]["size"];
             $file_type = $_FILES["imagen"]["type"];
 
-            echo "<p>$file_name</p>";
+            /*echo "<p>$file_name</p>";
             echo "<p>$file_temp_name</p>";
             echo "<p>$file_size</p>";
-            echo "<p>$file_type</p>";
+            echo "<p>$file_type</p>";*/
+
+            /*
+                VALIDAR EL FICHERO INTRODUCIDO
+                - ES OBLIGATORIO INTRODUCIR UN FICHERO
+                - TIENE QUE SER UNA IMAGEN DE EXTENSIÓN 
+                JPG, JPEG, PNG
+                - LA IMAGEN NO PUEDE TENER MÁS DE 1 MG
+             */
+
+            $extension = pathinfo($file_name, PATHINFO_EXTENSION);
+
+            $new_file_name = "videojuego_" . 
+                                $temp_titulo . "." . $extension;
+
+            $path = "./images/" . $new_file_name;
+            
+            if (move_uploaded_file($file_temp_name, $path)) {
+                echo "<p>Fichero movido con éxito</p>";
+            } else {
+                echo "<p>No se ha podido mover el fichero</p>";
+            }
 
             //  Validación de la descripción
             if (empty($temp_descripcion)) {
