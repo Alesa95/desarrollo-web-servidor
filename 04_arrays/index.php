@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Arrays</title>
 </head>
 <body>
@@ -53,9 +54,20 @@
 
         unset($personas["23242627F"]);
 
-        $personas = array_values($personas);
+        //$personas = array_values($personas);
 
-        print_r($personas);
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>DNI</th>";
+        echo "<th>Nombre</th>";
+        echo "</tr>";
+        foreach ($personas as $dni => $nombre) {
+            echo "<tr>";
+            echo "<td>" . $dni . "</td>";
+            echo "<td>" . $nombre . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
 
         echo "<br><br>";
 
@@ -86,5 +98,42 @@
         }
         ?>
     </ol>
+
+    <!-- Tabla foreach para las personas -->
+    <table>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+        </tr>
+        <?php
+            foreach ($personas as $dni => $nombre) {
+                ?>
+                <tr>
+                    <td><?php echo $dni ?></td>
+                    <td><?php echo $nombre ?></td>
+                </tr>
+                <?php
+            }
+        ?>
+    </table>
+
+
+    <?php
+        $frutas_1 = ["Melocotón", "Sandía", "Kiwi"];
+
+        $frutas_2 = ["Sandía", "Melocotón", "Kiwi"];
+
+        if ($frutas_1 == $frutas_2) {
+            echo "<p>Los arrays tienen los mismos elementos</p>";
+        } else {
+            echo "<p>Los arrays no tienen los mismos elementos</p>";
+        }
+
+        if ($frutas_1 === $frutas_2) {
+            echo "<p>Las frutas son las mismas y están igual ordenadas</p>";
+        } else {
+            echo "<p>Las frutas no son las mismas o no están igual ordenadas</p>";
+        }
+    ?>
 </body>
 </html>
