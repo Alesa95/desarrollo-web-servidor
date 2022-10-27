@@ -17,6 +17,16 @@
             ["Legend of Zelda", "Nintendo 64", 40],
             ["Castelvania", "Nintendo 64", 55],
         ];
+
+        $nuevo_juego = array("Fruit Ninja", "PS4", 0);
+
+        array_push($juegos, $nuevo_juego);
+
+        unset($juegos[1]);
+
+        $titulo = array_column($juegos, 0);
+        $consola = array_column($juegos, 1);
+        array_multisort($consola, SORT_ASC, $titulo, SORT_DESC, $juegos);
     ?>
     <table>
         <tr>
