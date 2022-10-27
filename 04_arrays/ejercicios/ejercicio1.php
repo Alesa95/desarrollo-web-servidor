@@ -8,12 +8,15 @@
     <title>Ejercicio 1</title>
 </head>
 <body>
+    <h1>Ejercicio 1</h1>
     <?php
     $numeros = [];
 
     for ($i = 2; $i <= 50; $i += 2) {
         $numeros[] = $i;
     }
+    shuffle($numeros);
+    rsort($numeros);
     ?>
     <ul>
         <?php 
