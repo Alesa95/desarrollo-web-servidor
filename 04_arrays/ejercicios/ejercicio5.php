@@ -11,7 +11,7 @@
 
     <?php
 
-    function calificacion (int $nota) {
+    function calificacionIf (int $nota) {
         if ($nota < 5) {
             $calificacion = "Suspenso";
         } else if ($nota >= 5 && $nota < 7) {
@@ -24,27 +24,53 @@
         return $calificacion;
     }
 
+    function calificacionMatch (int $nota) {
+        $calificacion = match (true) {
+            $nota < 5 => "Suspenso",
+            $nota >= 5 and $nota < 7 => "Aprobado",
+            $nota >= 7 and $nota < 9 => "Notable",
+            default => "Sobresaliente"
+        };
+        return $calificacion;
+    }
+
+    /*
     $estudiantes = [
         ["Luis", rand(0,10)],
         ["Alfredo", rand(0,10)],
         ["Elena", rand(0,10)]
     ];
+    */
+
+    $estudiantes = [
+        ["Luis"],
+        ["Alfredo"],
+        ["Elena"]
+    ];
+
+    for ($i = 0; $i < count($estudiantes); $i++) {
+        $estudiantes[$i][1] = rand(0,10);
+        $estudiantes[$i][2] = rand(0,10);
+    }
+
     ?>
 
     <table>
         <tr>
             <th>Nombre</th>
-            <th>Nota</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
             <th>Califiación</th>
         </tr>
         <?php
         foreach ($estudiantes as $estudiante) {
-            list($nombre, $nota) = $estudiante;
+            list($nombre, $nota1, $nota2) = $estudiante;
         ?>
             <tr>
                 <td><?php echo $nombre ?></td>
-                <td><?php echo $nota ?></td>
-                <td><?php echo calificacion($nota) ?>
+                <td><?php echo $nota1 ?></td>
+                <td><?php echo $nota2 ?></td>
+                <td><?php echo calificacionMatch($nota2) ?>
                 </td>
             </tr>
         <?php
