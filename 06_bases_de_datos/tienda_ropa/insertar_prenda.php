@@ -8,12 +8,33 @@
     <title>Nueva Prenda</title>
 </head>
 <body>
+    <?php
+        require 'util/base_de_datos.php';
+
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombre = $_POST["nombre"];
+            $talla = $_POST["talla"];
+            $precio = $_POST["precio"];
+
+            if (!empty($nombre) && !empty($talla) && !empty($precio)) {
+                $sql = "INSERT INTO prendas (nombre, talla, precio)
+                    VALUES ('$nombre', '$talla', '$precio')";
+
+                if ($conexion -> query($sql) == "TRUE") {
+                    echo "<p>Prenda insertada</p>";
+                } else {
+                    echo "<p>Error al insertar</p>";
+                }
+            }
+        }
+    ?>
+
     <div class="container">
         <h1>Nueva Prenda</h1> 
         
         <div class="row">
             <div class="col-6">
-                <form>
+                <form action="" method="post">
                     <label class="form-label">Nombre</label>
                     <input class="form-control" type="text" name="nombre">
                     <br>
