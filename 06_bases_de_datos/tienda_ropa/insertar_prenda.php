@@ -35,15 +35,18 @@
         <div class="row">
             <div class="col-6">
                 <form action="" method="post">
-                    <label class="form-label">Nombre</label>
-                    <input class="form-control" type="text" name="nombre">
-                    <br>
-                    <label class="form-label">Talla</label>
-                    <input class="form-control" type="text" name="talla">
-                    <br>
-                    <label class="form-label">Precio</label>
-                    <input class="form-control" type="text" name="precio">
-                    <br>
+                    <div class="form-group mb-3" >
+                        <label class="form-label">Nombre</label>
+                        <input class="form-control" type="text" name="nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Talla</label>
+                        <input class="form-control" type="text" name="talla">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Precio</label>
+                        <input class="form-control" type="text" name="precio">
+                    </div>
                     <button class="btn btn-primary" type="submit">Crear</button>
                 </form>
             </div>

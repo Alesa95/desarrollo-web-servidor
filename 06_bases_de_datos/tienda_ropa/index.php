@@ -13,8 +13,8 @@
 
         <div class="row">
             <div class="col-9">
-                <table class="table">
-                    <thead>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
                         <tr>
                             <th>Nombre</th>
                             <th>Talla</th>
