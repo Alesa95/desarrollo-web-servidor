@@ -41,6 +41,8 @@
     ?>
 
     <div class="container">
+        <?php require '../header.php' ?>
+        <br>
         <h1>Nueva Prenda</h1> 
         
         <div class="row">
@@ -75,6 +77,7 @@
                         </select>
                     </div>
                     <button class="btn btn-primary" type="submit">Crear</button>
+                    <a class="btn btn-secondary" href="index.php">Volver</a>
                 </form>
             </div>
         </div>

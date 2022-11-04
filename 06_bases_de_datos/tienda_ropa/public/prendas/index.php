@@ -9,16 +9,21 @@
 </head>
 <body>
     <div class="container">
+        <?php require '../header.php' ?>
+        <br>
         <h1>Listado de prendas</h1>
 
         <div class="row">
             <div class="col-9">
+                <a class="btn btn-primary" href="insertar_prenda.php">Nueva prenda</a>
+                <br><br>
                 <table class="table table-striped table-hover">
                     <thead class="table-dark">
                         <tr>
                             <th>Nombre</th>
                             <th>Talla</th>
                             <th>Precio</th>
+                            <th>Categoría</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +37,13 @@
                                     $nombre = $fila["nombre"];
                                     $talla = $fila["talla"];
                                     $precio = $fila["precio"];
+                                    $categoria = $fila["categoria"];
                                     ?>
                                     <tr>
                                         <td><?php echo $nombre ?></td>
                                         <td><?php echo $talla ?></td>
                                         <td><?php echo $precio ?></td>
+                                        <td><?php echo $categoria ?></td>
                                     </tr>
                                     <?php
                                 }
@@ -44,6 +51,9 @@
                         ?>
                     </tbody>
                 </table>
+            </div>
+            <div class="col-3">
+                <img width="200" heigth="200" src="../../resources/images/ropa.jpg">
             </div>
         </div>
     </div>
