@@ -42,6 +42,7 @@
     ?>
 
     <div class="container">
+        <?php require '../header.php' ?>
         <h1>Nuevo cliente</h1>
         <div class="row">
             <div class="col-6">

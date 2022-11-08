@@ -25,6 +25,7 @@
                             <th>Talla</th>
                             <th>Precio</th>
                             <th>Categoría</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,12 @@
                                         <td><?php echo $talla ?></td>
                                         <td><?php echo $precio ?></td>
                                         <td><?php echo $categoria ?></td>
+                                        <td>
+                                            <form action="mostrar_prenda.php" method="get">
+                                                <button class="btn btn-primary" type="submit">Ver</button>
+                                                <input type="hidden" name="id" value="<?php echo $fila["id"] ?>">
+                                            </form>
+                                        </td>
                                     </tr>
                                     <?php
                                 }
