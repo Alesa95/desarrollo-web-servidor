@@ -22,10 +22,14 @@
                 !empty($primer_apellido && 
                 !empty($fecha_nacimiento))) {
 
+                $segundo_apellido = 
+                    !empty($segundo_apellido) ? "'$segundo_apellido'" : "NULL";
+    
+
                 $sql = "INSERT INTO clientes (usuario, nombre, 
                     primer_apellido, segundo_apellido, 
                     fecha_nacimiento) VALUES ('$usuario', '$nombre',
-                    '$primer_apellido', '$segundo_apellido',
+                    '$primer_apellido', $segundo_apellido,
                     '$fecha_nacimiento')";
 
                 if ($conexion -> query($sql) == "TRUE") {
