@@ -20,6 +20,15 @@
             } else {
                 $categoria = "";
             }
+            $file_name = $_FILES["imagen"]["name"];
+            $file_temp_name = $_FILES["imagen"]["tmp_name"];
+            $path = "../../resources/images/prendas/" . $file_name;
+
+            if (move_uploaded_file($file_temp_name, $path)) {
+                echo "<p>Fichero movido con éxito</p>";
+            } else {
+                echo "<p>No se ha podido mover el fichero</p>";
+            }
 
             if (!empty($nombre) && !empty($talla) && !empty($precio)) {
                 if (!empty($categoria)) {
@@ -52,7 +61,7 @@
         
         <div class="row">
             <div class="col-6">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-group mb-3" >
                         <label class="form-label">Nombre</label>
                         <input class="form-control" type="text" name="nombre">
@@ -80,6 +89,10 @@
                             <option value="PANTALONES">Pantalones</option>
                             <option value="ACCESORIOS">Accesorios</option>
                         </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Imagen</label>
+                        <input class="form-control" type="file" name="imagen">
                     </div>
                     <button class="btn btn-primary" type="submit">Crear</button>
                     <a class="btn btn-secondary" href="index.php">Volver</a>
