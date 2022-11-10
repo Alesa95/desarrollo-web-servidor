@@ -24,19 +24,22 @@
             $file_temp_name = $_FILES["imagen"]["tmp_name"];
             $path = "../../resources/images/prendas/" . $file_name;
 
-            if (move_uploaded_file($file_temp_name, $path)) {
-                echo "<p>Fichero movido con éxito</p>";
-            } else {
-                echo "<p>No se ha podido mover el fichero</p>";
-            }
-
             if (!empty($nombre) && !empty($talla) && !empty($precio)) {
-                if (!empty($categoria)) {
-                    $sql = "INSERT INTO prendas (nombre, talla, precio, categoria)
-                        VALUES ('$nombre', '$talla', '$precio', '$categoria')";
+                //  Subimos la imagen a la carpeta deseada
+                if (move_uploaded_file($file_temp_name, $path)) {
+                    echo "<p>Fichero movido con éxito</p>";
                 } else {
-                    $sql = "INSERT INTO prendas (nombre, talla, precio)
-                        VALUES ('$nombre', '$talla', '$precio')";
+                    echo "<p>No se ha podido mover el fichero</p>";
+                }
+
+                //  Insertamos la prenda en la base de datos
+                $imagen = "/resources/images/prendas/" . $file_name;
+                if (!empty($categoria)) {
+                    $sql = "INSERT INTO prendas (nombre, talla, precio, categoria, imagen)
+                        VALUES ('$nombre', '$talla', '$precio', '$categoria', '$imagen')";
+                } else {
+                    $sql = "INSERT INTO prendas (nombre, talla, precio, imagen)
+                        VALUES ('$nombre', '$talla', '$precio', '$imagen')";
                 }
                 
 
