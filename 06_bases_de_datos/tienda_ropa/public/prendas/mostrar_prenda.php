@@ -31,13 +31,20 @@
                 }
             }
         }
-        echo "<p>Nombre: $nombre</p>";
-        echo "<p>Talla: $talla</p>";
-        echo "<p>Precio: $precio</p>";
-        echo "<p>Categoría: $categoria</p>";
         ?>
-        <img witdh="200" height="300" src="../..<?php echo $imagen ?>">
-        <a class="btn btn-secondary" href="index.php">Volver</a>
+
+        <div class="row">
+            <div class="col-4">
+                <p>Nombre: <?php echo $nombre ?></p>
+                <p>Talla: <?php echo $talla ?></p>
+                <p>Precio: <?php echo $precio ?></p>
+                <p>Categoría: <?php echo $categoria ?></p>
+                <a class="btn btn-secondary" href="index.php">Volver</a>
+            </div>
+            <div class="col-4">
+                <img witdh="200" height="300" src="../..<?php echo $imagen ?>">
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

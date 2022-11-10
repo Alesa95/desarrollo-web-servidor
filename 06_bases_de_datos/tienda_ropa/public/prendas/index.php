@@ -23,6 +23,7 @@
                     <thead class="table-dark">
                         <tr>
                             <th>Nombre</th>
+                            <th></th>
                             <th>Talla</th>
                             <th>Precio</th>
                             <th>Categoría</th>
@@ -60,9 +61,13 @@
                                     $talla = $fila["talla"];
                                     $precio = $fila["precio"];
                                     $categoria = $fila["categoria"];
+                                    $imagen = $fila["imagen"];
                                     ?>
                                     <tr>
                                         <td><?php echo $nombre ?></td>
+                                        <td>
+                                            <img width="50" height="60" src="../..<?php echo $imagen ?>">
+                                        </td>
                                         <td><?php echo $talla ?></td>
                                         <td><?php echo $precio ?></td>
                                         <td><?php echo $categoria ?></td>
