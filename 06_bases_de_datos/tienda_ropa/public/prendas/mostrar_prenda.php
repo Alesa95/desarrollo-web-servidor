@@ -40,6 +40,11 @@
                 <p>Precio: <?php echo $precio ?></p>
                 <p>Categoría: <?php echo $categoria ?></p>
                 <a class="btn btn-secondary" href="index.php">Volver</a>
+                <form action="editar_prenda.php" method="get">
+                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <input type="hidden" name="nombre" value="<?php echo $nombre ?>">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
             </div>
             <div class="col-4">
                 <img witdh="200" height="300" src="../..<?php echo $imagen ?>">

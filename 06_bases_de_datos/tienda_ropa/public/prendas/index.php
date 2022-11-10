@@ -36,6 +36,18 @@
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 $id = $_POST["id"];
 
+                                //  Consulta para coger la ruta de la imagen y luego borrarla
+                                $sql = "SELECT imagen FROM prendas WHERE id = '$id'";
+                                $resultado = $conexion -> query($sql);
+
+                                if ($resultado -> num_rows > 0) {
+                                    while ($fila = $resultado -> fetch_assoc()) {
+                                        $imagen = $fila["imagen"];
+                                    }
+                                    unlink("../.." . $imagen);
+                                }
+
+                                //  Consulta para borrar la prenda
                                 $sql = "DELETE FROM prendas WHERE id = '$id'";
 
                                 if ($conexion -> query($sql)) {
