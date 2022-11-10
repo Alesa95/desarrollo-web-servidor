@@ -27,6 +27,7 @@
                     $talla = $fila["talla"];
                     $precio = $fila["precio"];
                     $categoria = $fila["categoria"];
+                    $imagen = $fila["imagen"];
                 }
             }
         }
@@ -35,6 +36,7 @@
         echo "<p>Precio: $precio</p>";
         echo "<p>Categoría: $categoria</p>";
         ?>
+        <img witdh="200" height="300" src="../..<?php echo $imagen ?>">
         <a class="btn btn-secondary" href="index.php">Volver</a>
     </div>
 
