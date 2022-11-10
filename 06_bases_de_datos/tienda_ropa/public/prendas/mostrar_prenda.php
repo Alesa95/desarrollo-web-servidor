@@ -43,6 +43,9 @@
                 <form action="editar_prenda.php" method="get">
                     <input type="hidden" name="id" value="<?php echo $id ?>">
                     <input type="hidden" name="nombre" value="<?php echo $nombre ?>">
+                    <input type="hidden" name="talla" value="<?php echo $talla ?>">
+                    <input type="hidden" name="precio" value="<?php echo $precio ?>">
+                    <input type="hidden" name="categoria" value="<?php echo $categoria ?>">
                     <button type="submit" class="btn btn-primary">Editar</button>
                 </form>
             </div>

@@ -9,9 +9,34 @@
 </head>
 <body>
     <?php
+    require '../../util/base_de_datos.php';
+
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $id = $_GET["id"];
         $nombre = $_GET["nombre"];
+        $talla = $_GET["talla"];
+        $precio = $_GET["precio"];
+        $categoria = $_GET["categoria"];
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $id = $_POST["id"];
+        $nombre = $_POST["nombre"];
+        $talla = $_POST["talla"];
+        $precio = $_POST["precio"];
+        $categoria = $_POST["categoria"];
+
+        $sql = "UPDATE prendas  SET  nombre = '$nombre', 
+                                    talla = '$talla',
+                                    precio = '$precio',
+                                    categoria = '$categoria'
+                                WHERE id = '$id'";
+
+        if ($conexion -> query($sql) == "TRUE") {
+            echo "<p>Registro modificado</p>";
+        } else {
+            echo "<p>Error al modificar</p>";
+        }
     }
     ?>
     <div class="container">
@@ -26,7 +51,7 @@
                     <div class="form-group mb-3">
                         <label class="form-label">Talla</label>
                         <select class="form-select" name="talla">
-                            <option value="" selected disabled hidden>-- Selecciona la talla --</option>
+                            <option value="<?php echo $talla ?>" selected hidden><?php echo $talla ?></option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -36,18 +61,19 @@
                     </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Precio</label>
-                            <input class="form-control" type="text" name="precio">
+                            <input class="form-control" type="text" name="precio" value="<?php echo $precio ?>">
                         </div>
                     <div class="form-group mb-3">
                         <label class="form-label">Categoría</label>
                         <select class="form-select" name="categoria">
-                            <option value="" selected disabled hidden>-- Selecciona la categoría --</option>
+                            <option value="<?php echo $categoria ?>" selected hidden><?php echo ucfirst(strtolower($categoria)) ?></option>
                             <option value="CAMISETAS">Camisetas</option>
                             <option value="PANTALONES">Pantalones</option>
                             <option value="ACCESORIOS">Accesorios</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <button class="btn btn-primary" type="submit">Editar</button>
                     <a class="btn btn-secondary" href="index.php">Volver</a>
                     </form>
                 </div>
