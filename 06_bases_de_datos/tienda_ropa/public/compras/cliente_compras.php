@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
     <?php require '../header.php' ?>
     <?php require '../../util/base_de_datos.php' ?>
 
@@ -17,9 +18,9 @@
     }
     ?>
 
-    <div class="container">
+        <br>
         <h1>Compras de <?php echo $usuario ?></h1>
-
+        <br>
         <div class="row">
             <div class="col-9">
                 <table class="table">
