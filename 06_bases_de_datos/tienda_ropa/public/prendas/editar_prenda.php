@@ -33,9 +33,19 @@
                                 WHERE id = '$id'";
 
         if ($conexion -> query($sql) == "TRUE") {
-            echo "<p>Registro modificado</p>";
+        ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Prenda modificada con éxito
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
         } else {
-            echo "<p>Error al modificar</p>";
+        ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Error al modificar la prenda
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
         }
     }
     ?>
