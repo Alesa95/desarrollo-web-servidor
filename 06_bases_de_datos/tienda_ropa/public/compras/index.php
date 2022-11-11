@@ -40,13 +40,19 @@
                                 $fecha = $fila["fecha"];
                                 ?>
                                 <tr>
-                                    <td><?php echo $usuario ?></td>
+                                    <td><a href="./cliente_compras.php?usuario=<?php echo $usuario ?>"><?php echo $usuario ?></a></td>
                                     <td><?php echo $producto ?></td>
                                     <td><?php echo $cantidad ?></td>
                                     <td><?php echo $precio_unitario ?></td>
                                     <td><?php echo $fecha ?></td>
                                 </tr>
                                 <?php
+
+                                /*  CUANDO SE PULSE EN UN USUARIO
+                                    SE MOSTRARÁN LAS COMPRAS DE ESE
+                                    USUARIO Y EL TOTAL QUE HA GASTADO
+                                    (EN UN FICHERO NUEVO)
+                                */
                             }
                         }
                         ?>
