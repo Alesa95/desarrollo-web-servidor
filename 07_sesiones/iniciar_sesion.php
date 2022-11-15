@@ -8,34 +8,34 @@
     <title>Document</title>
 </head>
 <body>
-    <?php require 'base_de_datos.php' ?>
+<div class="container">
+        <?php require 'base_de_datos.php' ?>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $usuario = $_POST["usuario"];
-        $contrasena = $_POST["contrasena"];
-        $nombre = $_POST["nombre"];
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $usuario = $_POST["usuario"];
+            $contrasena = $_POST["contrasena"];
 
-        $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+            $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+            $resultado = $conexion -> query($sql);
 
-        echo "<p>Usuario: $usuario</p>";
-        echo "<p>Contraseña: $contrasena</p>";
-        echo "<p>Nombre: $nombre</p>";
-        echo "<p>Hash: $hash_contrasena</p>";
+            if ($resultado -> num_rows > 0) {
+                while ($fila = $resultado -> fetch_assoc()) {
+                    $hash_contrasena = $fila["contrasena"];
+                }
+                $acceso_valido = 
+                    password_verify($contrasena, $hash_contrasena);
 
-        $sql = "INSERT INTO usuarios (usuario, contrasena, nombre)
-                    VALUES ('$usuario', '$hash_contrasena', '$nombre')";
-
-        if ($conexion -> query($sql) == "TRUE") {
-            echo "<p>Usuario registrado</p>";
-        } else {
-            echo "<p>Error en el registro</p>";
+                if ($acceso_valido == TRUE) {
+                    echo "<h2>¡ACCESO VÁLIDO!</h2>";
+                } else {
+                    echo "<h2>Contraseña equivocada</h2>";
+                }
+            }
         }
-    }
-    ?>
+        ?>
 
-    <div class="container">
-        <h1>Regístrate</h1>
+        <h1>Inicia sesión</h1>
 
         <div class="row">
             <div class="col-6">
@@ -49,11 +49,7 @@
                         <input class="form-control" name="contrasena" type="password">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input class="form-control" name="nombre" type="text">
-                    </div>
-                    <div class="form-group mb-3">
-                        <button class="btn btn-primary" type="submit">Registrarse</button>
+                        <button class="btn btn-primary" type="submit">Iniciar sesión</button>
                     </div>
                 </form>
             </div>

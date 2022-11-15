@@ -2,7 +2,7 @@
     $servidor = 'localhost';
     $usuario = 'alejandra';
     $contrasena = 'alejandra';
-    $base_de_datos = 'db_tienda_ropa';
+    $base_de_datos = 'db_usuarios';
 
     $conexion = new MySQLi($servidor, $usuario, 
                                 $contrasena, $base_de_datos) 
