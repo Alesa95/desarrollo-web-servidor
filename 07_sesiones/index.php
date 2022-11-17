@@ -14,12 +14,18 @@
         if (!isset($_SESSION["usuario"])) {
             header('location: iniciar_sesion.php');
         } 
-        echo "<p>Bienvenid@ " . $_SESSION["usuario"] . "</p>";
+
+        echo "<p>" . $_SESSION["rol"] . "</p>";
+
         ?>
 
-        <p>Esto lo puede ver cualquier usuario registrado</p>
+        <p>Esto lo puede ver todo el mundo</p>
 
-        <p>Esto solo lo pueden ver los admins</p>
+        <?php
+        if ($_SESSION["rol"] == "administrador") {
+            echo "<p>Esto solo lo pueden ver los admins</p>";
+        }
+        ?>
 
         <a href="desconectarse.php">Cerrar sesión</a>
     </div>
