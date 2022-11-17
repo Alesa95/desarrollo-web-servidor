@@ -13,10 +13,13 @@
         session_start();
         if (!isset($_SESSION["usuario"])) {
             header('location: iniciar_sesion.php');
-        } else {
-            echo "<p>Bienvenid@ " . $_SESSION["usuario"] . "</p>";
-        }
+        } 
+        echo "<p>Bienvenid@ " . $_SESSION["usuario"] . "</p>";
         ?>
+
+        <p>Esto lo puede ver cualquier usuario registrado</p>
+
+        <p>Esto solo lo pueden ver los admins</p>
 
         <a href="desconectarse.php">Cerrar sesión</a>
     </div>
