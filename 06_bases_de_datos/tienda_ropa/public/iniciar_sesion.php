@@ -22,6 +22,7 @@
             if ($resultado -> num_rows > 0) {
                 while ($fila = $resultado -> fetch_assoc()) {
                     $hash_contrasena = $fila["contrasena"];
+                    $rol = $fila["rol"];
                 }
                 $acceso_valido = 
                     password_verify($contrasena, $hash_contrasena);
@@ -31,6 +32,7 @@
 
                     session_start();
                     $_SESSION["usuario"] = $usuario;
+                    $_SESSION["rol"] = $rol;
 
                     header('location: http://localhost/06_bases_de_datos/tienda_ropa/public/');
                 } else {
