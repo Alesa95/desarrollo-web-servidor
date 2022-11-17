@@ -8,6 +8,7 @@
     <title>Comprar prenda</title>
 </head>
 <body>
+    <?php require '../../util/control_de_acceso.php' ?>
     <?php require '../header.php' ?>
     <?php require '../../util/base_de_datos.php' ?>
 
