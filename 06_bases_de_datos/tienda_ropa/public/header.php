@@ -18,6 +18,7 @@
         <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/compras/comprar_prenda.php">Nueva compra</a>
         <a class="nav-link" href="">Mis compras</a>
         <a class="nav-link" href="http://localhost/06_bases_de_datos/tienda_ropa/public/desconectarse.php">Desconectarse</a>
+        <a class="nav-link" href="">Bienvenid@ <?php echo $_SESSION["usuario"] ?></a>
       </div>
     </div>
   </div>
