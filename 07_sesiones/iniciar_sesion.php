@@ -28,6 +28,11 @@
 
                 if ($acceso_valido == TRUE) {
                     echo "<h2>¡ACCESO VÁLIDO!</h2>";
+
+                    session_start();
+                    $_SESSION["usuario"] = $usuario;
+
+                    header('location: index.php');
                 } else {
                     echo "<h2>Contraseña equivocada</h2>";
                 }

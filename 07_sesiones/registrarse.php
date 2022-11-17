@@ -28,6 +28,7 @@
 
         if ($conexion -> query($sql) == "TRUE") {
             echo "<p>Usuario registrado</p>";
+            header("location: iniciar_sesion.php");
         } else {
             echo "<p>Error en el registro</p>";
         }
