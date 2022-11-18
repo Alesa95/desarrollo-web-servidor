@@ -57,6 +57,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                        <a class="btn btn-secondary" href="registrarse.php">Registrarse</a>
                     </div>
                 </form>
             </div>

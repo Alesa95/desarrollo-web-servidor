@@ -18,11 +18,12 @@
         $primer_apellido = $_POST["primer_apellido"];
         $segundo_apellido = $_POST["segundo_apellido"];
         $fecha_nacimiento = $_POST["fecha_nacimiento"];
+        $rol = $_POST["rol"];
 
         $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO clientes (usuario, contrasena, nombre, primer_apellido, segundo_apellido, fecha_nacimiento)
-                    VALUES ('$usuario', '$hash_contrasena', '$nombre', '$primer_apellido', '$segundo_apellido', '$fecha_nacimiento')";
+        $sql = "INSERT INTO clientes (usuario, contrasena, nombre, primer_apellido, segundo_apellido, fecha_nacimiento, rol)
+                    VALUES ('$usuario', '$hash_contrasena', '$nombre', '$primer_apellido', '$segundo_apellido', '$fecha_nacimiento', '$rol')";
 
         if ($conexion -> query($sql) == "TRUE") {
             echo "<p>Usuario registrado</p>";
@@ -62,6 +63,13 @@
                     <div class="form-group mb-3">
                         <label class="form-label">Fecha de nacimiento</label>
                         <input class="form-control" type="date" name="fecha_nacimiento">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Rol</label>
+                        <select class="form-select" name="rol">
+                            <option value="cliente">Cliente</option>
+                            <option value="administrador">Administrador</option>
+                        </select>
                     </div>
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Registrarse</button>
