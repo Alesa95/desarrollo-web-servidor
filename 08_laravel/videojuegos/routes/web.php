@@ -25,6 +25,9 @@ Route::get('/consolas/info', function () {
 Route::get('/consolas',
     [ConsolasController::class, 'index']);
 
+Route::get('/consolas/create',
+    [ConsolasController::class, 'create']);
+
 Route::get('/videojuegos', function () {
     return view('videojuegos');
 });

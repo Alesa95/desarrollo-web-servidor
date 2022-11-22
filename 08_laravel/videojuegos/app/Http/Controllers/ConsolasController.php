@@ -25,7 +25,7 @@ class ConsolasController extends Controller
      */
     public function create()
     {
-        //
+        return view('consolas/create');
     }
 
     /**
