@@ -28,6 +28,6 @@ Route::get('/consolas',
 Route::get('/consolas/create',
     [ConsolasController::class, 'create']);
 
-Route::get('/videojuegos', function () {
+/*Route::get('/videojuegos', function () {
     return view('videojuegos');
-});
+});*/

@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Index de consolas</h1>
+
+    <?php
+        echo "<p>$mensaje</p>";
+
+        echo "<ul>";
+        foreach ($consolas as $consola) {
+            echo "<li>$consola</li>";
+        }
+        echo "</ul>";
+    ?>
 </body>
 </html>

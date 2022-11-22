@@ -13,9 +13,19 @@ class ConsolasController extends Controller
      */
     public function index()
     {
-        //  Aquí iría la lógica del método
+        $mensaje = "Esta es la lista de consolas";
 
-        return view('consolas/index');
+        $consolas = [
+            "Playstation 4",
+            "Playstation 5",
+            "Nintendo Switch",
+            "XBox Series X"
+        ];
+
+        return view('consolas/index', [
+            'mensaje' => $mensaje,
+            'consolas' => $consolas
+        ]);
     }
 
     /**
