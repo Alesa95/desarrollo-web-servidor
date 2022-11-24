@@ -29,8 +29,11 @@ Route::get('/consolas',
 Route::get('/consolas/create',
     [ConsolasController::class, 'create']);
 
-Route::get('/videojuegos',
+/*Route::get('/videojuegos',
     [VideojuegosController::class, 'index']);
 
 Route::get('/videojuegos/create',
-    [VideojuegosController::class, 'create']);
+    [VideojuegosController::class, 'create']);*/
+
+Route::resource('/videojuegos', 
+    VideojuegosController::class);

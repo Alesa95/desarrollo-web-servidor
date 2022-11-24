@@ -12,7 +12,8 @@
         <h1>Nuevo videojuego</h1>
         <div class="row">
             <div class="col-9">
-                <form>
+                <form method="post" action="{{ route('videojuegos.store') }}">
+                    @csrf
                     <div class="form-group mb-3">
                         <label class="form-label">Títutlo</label>
                         <input class="form-control" type="text" name="titulo">
