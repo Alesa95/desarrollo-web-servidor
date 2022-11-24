@@ -35,7 +35,7 @@ class VideojuegosController extends Controller
      */
     public function create()
     {
-        //
+        return view('videojuegos/create');
     }
 
     /**
