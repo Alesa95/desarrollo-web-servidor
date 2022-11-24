@@ -48,7 +48,14 @@ class VideojuegosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $videojuego = new Videojuego;
+        $videojuego -> titulo = $request -> input('titulo');
+        $videojuego -> precio = $request -> input('precio');
+        $videojuego -> pegi = $request -> input('pegi');
+        $videojuego -> descripcion = $request -> input('descripcion');
+        $videojuego -> save();
+
+        return redirect('videojuegos');
     }
 
     /**
