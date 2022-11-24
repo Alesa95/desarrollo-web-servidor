@@ -27,10 +27,10 @@
                     <tbody>
                         @foreach($videojuegos as $videojuego)
                             <tr>
-                                <td>{{ $videojuego[0] }}</td>
-                                <td>{{ $videojuego[1] }}</td>
-                                <td>{{ $videojuego[2] }}</td>
-                                <td>{{ $videojuego[3] }}</td>
+                                <td>{{ $videojuego -> titulo }}</td>
+                                <td>{{ $videojuego -> precio }}</td>
+                                <td>{{ $videojuego -> pegi }}</td>
+                                <td>{{ $videojuego -> descripcion }}</td>
                             </tr>
                             {{-- Comentario Blade --}}
                         @endforeach

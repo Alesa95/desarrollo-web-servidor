@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Videojuego;
 
-class VideojuegosController extends Controller
+class CompaniasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +13,7 @@ class VideojuegosController extends Controller
      */
     public function index()
     {
-        /*$videojuegos = [
-            ["Call of Duty", 60, 18, "Este es el Call of Duty"],
-            ["Pokémon Púrpura", 50, 7, "Este es el Pokémon Españita"]
-        ];*/
-        $videojuegos = Videojuego::all();
-
-        $mensaje = "Aquí tenemos un listado de videojuegos";
-
-        return view('videojuegos/index',
-            [
-                "videojuegos" => $videojuegos,
-                "mensaje" => $mensaje
-            ]
-        );
+        //
     }
 
     /**
@@ -37,7 +23,7 @@ class VideojuegosController extends Controller
      */
     public function create()
     {
-        return view('videojuegos/create');
+        //
     }
 
     /**
