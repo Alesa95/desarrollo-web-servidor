@@ -507,6 +507,7 @@ class ComposerStaticInitc421e97c6be56a0e7240ef79a9ebe287
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\CompaniasController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompaniasController.php',
         'App\\Http\\Controllers\\ConsolasController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConsolasController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\VideojuegosController' => __DIR__ . '/../..' . '/app/Http/Controllers/VideojuegosController.php',
@@ -521,6 +522,7 @@ class ComposerStaticInitc421e97c6be56a0e7240ef79a9ebe287
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Compania' => __DIR__ . '/../..' . '/app/Models/Compania.php',
+        'App\\Models\\Consola' => __DIR__ . '/../..' . '/app/Models/Consola.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Videojuego' => __DIR__ . '/../..' . '/app/Models/Videojuego.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

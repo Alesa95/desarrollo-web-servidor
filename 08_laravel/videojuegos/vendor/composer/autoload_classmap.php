@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\CompaniasController' => $baseDir . '/app/Http/Controllers/CompaniasController.php',
     'App\\Http\\Controllers\\ConsolasController' => $baseDir . '/app/Http/Controllers/ConsolasController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\VideojuegosController' => $baseDir . '/app/Http/Controllers/VideojuegosController.php',
@@ -22,6 +23,7 @@ return array(
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Compania' => $baseDir . '/app/Models/Compania.php',
+    'App\\Models\\Consola' => $baseDir . '/app/Models/Consola.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Videojuego' => $baseDir . '/app/Models/Videojuego.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

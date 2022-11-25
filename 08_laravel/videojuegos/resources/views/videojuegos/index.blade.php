@@ -28,6 +28,7 @@
                             <th>PEGI</th>
                             <th>Descripción</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,13 @@
                                 <td>
                                     <form method="get" action="{{ route('videojuegos.show', ['videojuego' => $videojuego -> id]) }}">
                                         <button class="btn btn-primary" type="submit">Ver</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" action="{{ route('videojuegos.destroy', ['videojuego' => $videojuego -> id]) }}">
+                                        @csrf 
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-danger" type="submit">Borrar</button>
                                     </form>
                                 </td>
                             </tr>

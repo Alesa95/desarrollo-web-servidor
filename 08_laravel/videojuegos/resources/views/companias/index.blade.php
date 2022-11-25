@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola mundo</title>
+    <title>Compañías</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-        <h1>Consolas</h1>
+        <h1>Compañías de videojuegos</h1>
 
         <div class="row">
             <div class="col-12">
@@ -17,18 +17,16 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Año de salida</th>
-                            <th>Generación</th>
-                            <th>Descripción</th>
+                            <th>Sede</th>
+                            <th>Fecha de fundación</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($consolas as $consola)
+                        @foreach($companias as $compania)
                             <tr>
-                                <td>{{ $consola -> nombre }}</td>
-                                <td>{{ $consola -> anyo_salida }}</td>
-                                <td>{{ $consola -> generacion }}</td>
-                                <td>{{ $consola -> descripcion }}</td>
+                                <td>{{ $compania -> nombre }}</td>
+                                <td>{{ $compania -> sede }}</td>
+                                <td>{{ $compania -> fecha_fundacion }}</td>
                             </tr>
                         @endforeach
                     </tbody>
