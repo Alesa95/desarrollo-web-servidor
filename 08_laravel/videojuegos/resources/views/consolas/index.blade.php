@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        @include('header')
         <h1>Consolas</h1>
 
         <div class="row">

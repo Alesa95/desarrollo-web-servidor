@@ -84,7 +84,13 @@ class VideojuegosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $videojuego = Videojuego::find($id);
+
+        return view('videojuegos/edit',
+            [
+                'videojuego' => $videojuego
+            ]
+        );
     }
 
     /**
