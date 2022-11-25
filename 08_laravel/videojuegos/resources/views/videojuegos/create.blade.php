@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        @include('header')
         <h1>Nuevo videojuego</h1>
         <div class="row">
             <div class="col-9">

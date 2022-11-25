@@ -9,12 +9,17 @@
 </head>
 <body>
     <div class="container">
+        @include('header')
         <h1>Index de Videojuegos</h1>
 
         <p>{{ $mensaje }}</p>
 
+        <a href="{{ route('videojuegos.create') }}" class="btn btn-success">
+            Crear videojuego
+        </a>
+
         <div class="row">
-            <div class="col-9">
+            <div class="col-12">
                 <table class="table">
                     <thead>
                         <tr>
@@ -22,6 +27,7 @@
                             <th>Precio</th>
                             <th>PEGI</th>
                             <th>Descripción</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +37,11 @@
                                 <td>{{ $videojuego -> precio }}</td>
                                 <td>{{ $videojuego -> pegi }}</td>
                                 <td>{{ $videojuego -> descripcion }}</td>
+                                <td>
+                                    <form method="get" action="{{ route('videojuegos.show', ['videojuego' => $videojuego -> id]) }}">
+                                        <button class="btn btn-primary" type="submit">Ver</button>
+                                    </form>
+                                </td>
                             </tr>
                             {{-- Comentario Blade --}}
                         @endforeach
