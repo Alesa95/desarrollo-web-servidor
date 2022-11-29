@@ -9,22 +9,17 @@
 </head>
 <body>
     <div class="container">
-        @include('header')
-        <h1>Index de Videojuegos</h1>
+        <h1>Búsqueda de Videojuegos</h1>
 
-        <p>{{ $mensaje }}</p>
+        
 
         <a href="{{ route('videojuegos.create') }}" class="btn btn-success">
             Crear videojuego
         </a>
 
-        <a href="{{ route('videojuegos.search') }}" class="btn btn-success">
-            Buscar videojuego
-        </a>
-
         <br><br>
 
-        <form action="{{ route('videojuegos.search') }}" method="GET">
+        <form>
             <div class="row">
                 <div class="col-2">
                     <label class="form-label">Buscar por título</label>
@@ -59,9 +54,9 @@
                                 <td>{{ $videojuego -> pegi }}</td>
                                 <td>{{ $videojuego -> descripcion }}</td>
                                 <td>
-                                    {{--<form method="get" action="{{ route('videojuegos.show', ['videojuego' => $videojuego -> id]) }}">
+                                    <form method="get" action="{{ route('videojuegos.show', ['videojuego' => $videojuego -> id]) }}">
                                         <button class="btn btn-primary" type="submit">Ver</button>
-                                    </form>--}}
+                                    </form>
                                 </td>
                                 <td>
                                     <form method="post" action="{{ route('videojuegos.destroy', ['videojuego' => $videojuego -> id]) }}">
@@ -71,7 +66,6 @@
                                     </form>
                                 </td>
                             </tr>
-                            {{-- Comentario Blade --}}
                         @endforeach
                     </tbody>
                 </table>
