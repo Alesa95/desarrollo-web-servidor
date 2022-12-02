@@ -47,6 +47,7 @@
                             <th>Precio</th>
                             <th>PEGI</th>
                             <th>Descripción</th>
+                            <th>Compañía</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -58,6 +59,7 @@
                                 <td>{{ $videojuego -> precio }}</td>
                                 <td>{{ $videojuego -> pegi }}</td>
                                 <td>{{ $videojuego -> descripcion }}</td>
+                                <td>{{ $videojuego -> compania -> nombre }}</td>
                                 <td>
                                     {{--<form method="get" action="{{ route('videojuegos.show', ['videojuego' => $videojuego -> id]) }}">
                                         <button class="btn btn-primary" type="submit">Ver</button>
