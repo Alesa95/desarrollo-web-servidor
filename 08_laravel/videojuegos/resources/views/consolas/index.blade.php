@@ -25,12 +25,20 @@
                     </thead>
                     <tbody>
                         @foreach($consolas as $consola)
-                            <tr>
+                            <tr class="table table-dark">
                                 <td>{{ $consola -> nombre }}</td>
                                 <td>{{ $consola -> anyo_salida }}</td>
                                 <td>{{ $consola -> generacion }}</td>
                                 <td>{{ $consola -> descripcion }}</td>
                             </tr>
+                            @foreach($consola -> videojuegos as $videojuego)
+                                <tr class="table table-light">
+                                    <td>{{ $videojuego -> titulo }}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
                         @endforeach
                     </tbody>
                 </table>

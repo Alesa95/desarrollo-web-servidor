@@ -13,7 +13,9 @@ class Consola extends Model
         return $this->belongsToMany(
             Videojuego::class,
             'consolas_videojuegos',
+            //  Primero va consola_id porque estamos en el modelo Consola
             'consola_id',
+            //  Luego va videojuego_id que es el id del modelo con el que se relaciona
             'videojuego_id'
         );
     }
